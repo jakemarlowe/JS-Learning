@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Where JS goes</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<title>Good Website</title>
+	<link rel="icon" type="image/png" href=/>
+
+<style type="text/css"> 
+	body{ text-align:center;}
+</style>
 
 
 </head>
 <body>
 
-
-	
-
 	<script>
-		var name = "zach"
-		var score = 0
-		
+
 		var playerName = prompt("Please enter your name", "<name goes here>");
+		var score = 0;
+		var gameOver = playerName +"'s final score is ";
+		var failScore = ""
+		
+			switch(playerName){
 
-setTimeout (function() { document.write (playerName +"'s final score is " + score); }, 4000);
+				case "null":
+				case "Null":
+				case "":
+				case "<name goes here>":
+				case " ":
+				case null:
+				gameOver = "You thought you could break my thing, didn't you?";
+				failScore = "<h1>You get <br> NOTHING</h1>"; 
+				setTimeout (function() { document.write(gameOver + "<br>" + failScore); }, 1);
+				break;
+				case "Your name":
+				case "your name":
+				case "Your Name":
+				case "your Name":
+					gameOver = "Alright you tried"
+					setTimeout (function() { document.write(gameOver); }, 1);
+					break
 
-setTimeout(function() { window.location.href = 'https://www.pornhub.com/';	}, 10000);
+				case "Zach":
+				case "zach":
+				score = Math.floor( Math.random() *10000); setTimeout (function() { document.write(gameOver + "<h1>" + score + "</h1>"); }, 4000);
+				setTimeout(function(){document.write("Wait for your prize");}, 7000);
+
+				setTimeout(function() { window.location.href = 'http://www.randomkittengenerator.com/';	}, 10000);
+				break
+				default:
+				setTimeout (function() { document.write(gameOver + "<h1>" + score + "</h1>"); }, 4000);
+				setTimeout(function(){document.write("Wait for your prize");}, 7000);
+
+				setTimeout(function() { window.location.href = 'http://www.randomkittengenerator.com/';	}, 10000);
+				break;
+			}
+ 
+
+setTimeout(function() { console.log("Score: " + score);	}, 4001);
+setTimeout(function() { console.log("Player name: " + playerName);}, 4001);
 
 	</script>
 
-<button onclick="score++">click to win</button>
+<button onclick="score++">Click to win</button>
 
+	<h1 id=finalScore></h1>
 
 </body>
 </html>
